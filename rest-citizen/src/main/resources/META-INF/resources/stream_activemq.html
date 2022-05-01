@@ -1,0 +1,16 @@
+<b>Date of birth: </b><span id="date_of_birth"></span><br>
+<b>Id: </b><span id="id"></span><br>
+<b>Name: </b><span id="name"></span><br>
+<b>SSN: </b><span id="social_security_number"></span>
+
+<script>
+    var source = new EventSource("/citizens/stream/activemq");
+    source.onmessage = function(event){
+        console.log("WebSocket message received:", event.data);
+        var object = JSON.parse(event.data);
+        document.getElementById("date_of_birth").innerHTML = object.date_of_birth;
+        document.getElementById("id").innerHTML = object.id;
+        document.getElementById("name").innerHTML = object.name;
+        document.getElementById("social_security_number").innerHTML = object.social_security_number;
+    };
+</script>
