@@ -37,3 +37,10 @@ nb-configuration.xml
 
 # Local environment
 .env
+
+#Exclude
+!target/
+target/*
+!target/kubernetes/
+target/kubernetes/*
+!target/kubernetes/*kubernetes*.yml
